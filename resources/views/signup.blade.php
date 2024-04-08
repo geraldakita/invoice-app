@@ -6,6 +6,10 @@
 <main class="w-full max-w-md mx-auto p-6">
   <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
     <div class="p-4 sm:p-7">
+      <div class="flex-none text-xl font-semibold flex justify-center my-5" aria-label="Brand">
+        <img src="/img/inventoryapp-logo-dark.png" class="hidden dark:block w-1/2" alt="Inventory App Logo">
+        <img src="/img/inventoryapp-logo.png" class="dark:hidden w-1/2" alt="Inventory App Logo">
+      </div>
       <div class="text-center">
         <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Sign up</h1>
         <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">

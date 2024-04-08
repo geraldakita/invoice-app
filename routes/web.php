@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Dashboard
-Route::get('/', function () {
-    return view('welcome');
-})->name('dashboard')->middleware('auth');
-
 // Registration
-Route::get('/register', [AuthController::class, 'signUpScreen'])->name('signUp');
-Route::post('/register', [AuthController::class, 'signUp'])->name('signUpProcess');
+Route::get('/signup', [AuthController::class, 'signUpScreen'])->name('signUp');
+Route::post('/signup', [AuthController::class, 'signUp'])->name('signUpProcess');
 
 // Login
 Route::get('/login', [AuthController::class, 'loginScreen'])->name('login');
@@ -30,3 +27,9 @@ Route::post('/login', [AuthController::class, 'login'])->name('loginProcess');
 
 // Logout
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+
+Route::middleware(['auth'])->group(function () {
+    // Dashboard
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+});
