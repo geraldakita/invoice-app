@@ -1,11 +1,15 @@
 @extends('layout')
 
-@section('title', 'Sign Up')
+@section('title', 'Log In')
 
 @section('content')
 <main class="w-full max-w-md mx-auto p-6">
     <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
         <div class="p-4 sm:p-7">
+            <div class="flex-none text-xl font-semibold flex justify-center my-5" aria-label="Brand">
+                <img src="/img/inventoryapp-logo-dark.png" class="hidden dark:block w-1/2" alt="Inventory App Logo">
+                <img src="/img/inventoryapp-logo.png" class="dark:hidden w-1/2" alt="Inventory App Logo">
+            </div>
             <div class="text-center">
                 <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Sign in</h1>
                 <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
@@ -58,7 +62,7 @@
                         <!-- Checkbox -->
                         <div class="flex items-center">
                             <div class="flex">
-                                <input id="remember-me" name="remember-me" type="checkbox" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                                <input id="remember-me" name="remember-me" type="checkbox" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" {{ old('remember') ? 'checked' : '' }}>
                             </div>
                             <div class="ms-3">
                                 <label for="remember-me" class="text-sm dark:text-white">Remember me</label>

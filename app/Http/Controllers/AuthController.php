@@ -10,7 +10,12 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     //
-    public function signUpScreen(){
+    public function signUpScreen()
+    {
+        // Check if the user is already authenticated
+        if (Auth::check()) {
+            return redirect('/');
+        }
         return view('signup');
     }
     public function signUp(Request $request)
@@ -34,7 +39,12 @@ class AuthController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function loginScreen(){
+    public function loginScreen()
+    {
+        // Check if the user is already authenticated
+        if (Auth::check()) {
+            return redirect('/');
+        }
         return view('login');
     }
     public function login(Request $request)
@@ -44,7 +54,9 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if (Auth::attempt($validatedData)) {
+        $remember = $request->has('remember-me');
+
+        if (Auth::attempt($validatedData, $remember)) {
             $request->session()->regenerate();
 
             // Redirect the user to the intended page or a default page

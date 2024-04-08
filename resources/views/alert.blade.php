@@ -8,7 +8,7 @@
                 </svg>
             </div>
             <div class="ml-3">
-                <p class="text-sm font-medium text-white">
+                <p class="text-sm font-medium dark:text-white">
                     {{ $errors->first() }}
                 </p>
             </div>
@@ -25,7 +25,7 @@
                 </svg>
             </div>
             <div class="ml-3">
-                <p class="text-sm font-medium">
+                <p class="text-sm font-medium dark:text-white">
                     {{ session('success') }}
                 </p>
             </div>
@@ -42,7 +42,7 @@
                 </svg>
             </div>
             <div class="ml-3">
-                <p class="text-sm font-medium">
+                <p class="text-sm font-medium dark:text-white">
                     {{ session('error') }}
                 </p>
             </div>
