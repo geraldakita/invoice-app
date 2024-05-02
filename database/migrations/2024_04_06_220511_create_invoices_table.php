@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('invoice_date');
             $table->date('due_date');
             $table->decimal('total_amount', 10, 2);
-            $table->string('status')->default('pending'); // E.g., pending, paid, overdue
+            $table->enum('status', ['Pending', 'Paid', 'Overdue'])->default('pending');
             $table->decimal('discount_value', 8, 2)->default(0.00);
             $table->string('discount_type')->default('none'); // E.g., none, fixed, percentage
             $table->decimal('tax_rate', 5, 2)->nullable();
