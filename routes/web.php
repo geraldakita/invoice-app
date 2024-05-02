@@ -28,8 +28,9 @@ Route::post('/login', [AuthController::class, 'login'])->name('loginProcess');
 // Logout
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-
+// Dashboard
 Route::middleware(['auth'])->group(function () {
     // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/invoices', [DashboardController::class, 'invoices'])->name('invoices');
 });
